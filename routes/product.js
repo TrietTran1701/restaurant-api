@@ -68,7 +68,7 @@ router.get("/", async (req, res) => {
     } else if (qCategory) {
       products = await Product.find({
         categories: {
-          $in: [qCategory],
+          $in: [qCategory], // check if qCategory is inside categories
         },
       });
     } else {
