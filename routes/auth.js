@@ -38,6 +38,7 @@ router.post("/login", async (req, res) => {
     OriginalPassword !== req.body.password &&
       res.status(401).json("Wrong credentials!");
 
+    // token to remember login status (expire in 3 days)
     const accessToken = jwt.sign(
       {
         id: user._id,
